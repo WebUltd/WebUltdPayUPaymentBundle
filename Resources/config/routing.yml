@@ -1,0 +1,21 @@
+webultdPayuPaymentBundle_order_summary:
+    pattern:  /summary
+    defaults: { _controller: webultdPayuPaymentBundle:Payment:orderSummary }
+
+webultdPayuPaymentBundle_authorized:
+    pattern:  /authorized
+    defaults: { _controller: webultdPayuPaymentBundle:Payment:authorized }
+
+webultdPayuPaymentBundle_success:
+    pattern:  /success
+    defaults: { _controller: webultdPayuPaymentBundle:Payment:success }
+
+webultdPayuPaymentBundle_cancel:
+    pattern:  /cancel
+    defaults: { _controller: webultdPayuPaymentBundle:Payment:cancel }
+        
+webultdPayuPaymentBundle_status:
+    pattern:  /status
+    defaults: { _controller: webultdPayuPaymentBundle:Payment:status }
+    requirements:
+        _method: POST

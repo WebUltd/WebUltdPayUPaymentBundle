@@ -1,0 +1,12 @@
+{% extends 'webultdPayuPaymentBundle::layout.html.twig' %}
+
+{% block body %}
+    <div class="row-fluid">
+        <form method="GET" action="{{ summaryUrl }}">
+            <input type="hidden" name="sessionId" value="{{ app.session.get('payu_session_id') }}">
+            <input type="hidden" name="oauth_token" value="{{ accessToken }}">
+            <input type="submit" value="Next step (summary page) >">
+        </form>
+    </div> 
+    
+{% endblock %}

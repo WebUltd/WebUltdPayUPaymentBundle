@@ -1,0 +1,6 @@
+<form method="GET" action="{{ authUrl }}">
+    <input type="hidden" name="redirect_uri" value="{{ url('webultdPayuPaymentBundle_authorized') }}">
+    <input type="hidden" name="response_type" value="code">
+    <input type="hidden" name="client_id" value="{{ clientId }}">
+    <input type="image" src="http://static.payu.com/pl/standard/partners/buttons/payu_pay_with_button_01_pl.png">
+</form>

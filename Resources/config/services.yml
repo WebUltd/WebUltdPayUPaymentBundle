@@ -1,0 +1,30 @@
+parameters:
+    webultd_payu_payment.api.class: webultd\Payu\PaymentBundle\Utility\Api
+    webultd_payu_payment.shopping_cart.class: webultd\Payu\PaymentBundle\Utility\ShoppingCart
+    webultd_payu_payment.twig.class: webultd\Payu\PaymentBundle\Twig\Extension\PayuExtension
+
+services:
+    webultd_payu_payment.api:
+        class: %webultd_payu_payment.api.class%
+        file: %webultd_payu_payment.file%
+        arguments:
+            - @session
+            - @router
+            - %webultd_payu_payment.environment%
+            - %webultd_payu_payment.merchant_pos_id%
+            - %webultd_payu_payment.pos_auth_key%
+            - %webultd_payu_payment.client_id%
+            - %webultd_payu_payment.client_secret%
+            - %webultd_payu_payment.signature_key%
+            
+    webultd_payu_payment.shopping_cart:
+        class: %webultd_payu_payment.shopping_cart.class%
+        arguments:
+            - @session
+
+    webultd_payu_payment.twig:
+      class: %webultd_payu_payment.twig.class%
+      arguments:
+          - @service_container
+      tags: 
+          - { name: 'twig.extension' }

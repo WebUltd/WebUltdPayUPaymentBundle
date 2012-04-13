@@ -1,0 +1,33 @@
+{% extends 'webultdPayuPaymentBundle::layout.html.twig' %}
+
+{% block body %}
+    <div>
+        <h2>Podsumowanie zamówienia</h2>
+        {% if createRequestSuccess %}
+            <table>
+                <tr>
+                    <th>Produkt</th>
+                    <th>Ilość</th>
+                    <th>Cena jednostkowa brutto</th>
+                    <th>Razem brutto</th>
+                </tr>
+                {% for item in orderItems %}
+                <tr>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ item.priceGross|number_format(2, ',', ' ') }} zł</td>
+                    <td>{{ item.totalPriceGross|number_format(2, ',', ' ') }} zł</td>
+                    <td
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td colspan="3" style="text-align: left; font-weight: bold;">Razem do zapłaty brutto:</td><td>{{ order.amountGross|number_format(2, ',', ' ') }} zł</td>
+                </tr>
+            </table>
+            {{ payu_button() }}
+        {% else %}
+            Wystąpił problem podczas komunikacji z PayU. <a href="{{ path('webultdPayuPaymentBundle_order_summary') }}">Spróbuj ponownie za chwilę...</a>
+        {% endif %}
+    </div> 
+    
+{% endblock %}
