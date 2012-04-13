@@ -36,7 +36,7 @@ $bundles = array(
 ```
 webultd_payu_payment:
     file: %kernel.root_dir%/../vendor/bundles/webultd/Payu/PaymentBundle/sdk/openpayu.php
-    environment: sandbox
+    environment: sandbox # dla środowiska produkcyjnego zmieniamy na "secure"
     merchant_pos_id: xxxx # tutaj wstawiamy pos_id dostępny w PayU
     pos_auth_key: xxxx # pos_auth_key z serwisu PayU
     client_id: xxxx # client_id z serwisu PayU
