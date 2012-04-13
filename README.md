@@ -4,13 +4,15 @@
 
 ## Instalacja
 
-1. Dodanie wpisu do pliku deps:
+### Dodanie wpisu do pliku deps:
+
 ```
 [WebUltdPayUPaymentBundle]
     git=https://github.com/WebUltd/WebUltdPayUPaymentBundle.git
     target=/bundles/webultd/Payu/PaymentBundle
 ```
-2. Dodanie wpisu do app/autoload.php:
+### Dodanie wpisu do app/autoload.php:
+
 ```php
 $loader->registerNamespaces(array(
     ...
@@ -19,7 +21,8 @@ $loader->registerNamespaces(array(
 ));
 ```
 
-3. Dodanie wpisu do app/AppKernel.php:
+### Dodanie wpisu do app/AppKernel.php:
+
 ```php
 $bundles = array(
     ...
@@ -27,14 +30,15 @@ $bundles = array(
 );
 ```
 
-4. Routing (app/config/routing.yml):
+### Routing (app/config/routing.yml):
+
 ```
 webultdPayuPaymentBundle:
     resource: "@webultdPayuPaymentBundle/Resources/config/routing.yml"
     prefix:   /payment
 ```
 
-# Konfiguracja
+## Konfiguracja
 
 ```
 webultd_payu_payment:
@@ -47,7 +51,7 @@ webultd_payu_payment:
     signature_key: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx # signature_key z serwisu PayU
 ```
 
-# Akcje
+## Akcje
 
 ```
 // webultd/PayU/PaymentBundle/Resources/config/routing.yml
