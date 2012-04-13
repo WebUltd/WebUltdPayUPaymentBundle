@@ -5,6 +5,7 @@
 ## Instalacja
 
 1. Dodanie wpisu do pliku deps:
+
 ```
 [WebUltdPayUPaymentBundle]
     git=https://github.com/WebUltd/WebUltdPayUPaymentBundle.git
@@ -12,6 +13,7 @@
 ```
 
 2. Dodanie wpisu do app/autoload.php:
+
 ```php
 $loader->registerNamespaces(array(
     ...
@@ -21,6 +23,7 @@ $loader->registerNamespaces(array(
 ```
 
 3. Dodanie wpisu do app/AppKernel.php:
+
 ```php
 $bundles = array(
     ...
@@ -29,6 +32,7 @@ $bundles = array(
 ```
 
 4. Konfiguracja:
+
 ```
 webultd_payu_payment:
     file: %kernel.root_dir%/../vendor/bundles/webultd/Payu/PaymentBundle/sdk/openpayu.php
