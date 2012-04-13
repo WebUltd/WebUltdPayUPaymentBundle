@@ -54,28 +54,23 @@ webultdPayuPaymentBundle:
 6. Akcje:
 ```
 // webultd/PayU/PaymentBundle/Resources/config/routing.yml
-# akcja podsumowania zamówienia oraz możliwość dokonania płatności
-webultdPayuPaymentBundle_order_summary:
+webultdPayuPaymentBundle_order_summary: # akcja podsumowania zamówienia oraz możliwość dokonania płatności
     pattern:  /summary
     defaults: { _controller: webultdPayuPaymentBundle:Payment:orderSummary }
 
-# akcja wywoływana po poprawnej autoryzacji w PayU
-webultdPayuPaymentBundle_authorized:
+webultdPayuPaymentBundle_authorized: # akcja wywoływana po poprawnej autoryzacji w PayU
     pattern:  /authorized
     defaults: { _controller: webultdPayuPaymentBundle:Payment:authorized }
 
-# akcja po poprawnym dokonaniu płatności
-webultdPayuPaymentBundle_success:
+webultdPayuPaymentBundle_success: # akcja po poprawnym dokonaniu płatności
     pattern:  /success
     defaults: { _controller: webultdPayuPaymentBundle:Payment:success }
 
-# akcja po anulowaniu płatności
-webultdPayuPaymentBundle_cancel:
+webultdPayuPaymentBundle_cancel: # akcja po anulowaniu płatności
     pattern:  /cancel
     defaults: { _controller: webultdPayuPaymentBundle:Payment:cancel }
 
-# akcja nasłuchująca notyfikacje z PayU
-webultdPayuPaymentBundle_status:
+webultdPayuPaymentBundle_status: # akcja nasłuchująca notyfikacje z PayU
     pattern:  /status
     defaults: { _controller: webultdPayuPaymentBundle:Payment:status }
     requirements:
