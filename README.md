@@ -43,3 +43,41 @@ webultd_payu_payment:
     client_secret: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx # client_secret z serwisu PayU
     signature_key: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx # signature_key z serwisu PayU
 ```
+
+5. Routing:
+```
+webultdPayuPaymentBundle:
+    resource: "@webultdPayuPaymentBundle/Resources/config/routing.yml"
+    prefix:   /payment
+```
+
+6. Akcje:
+```
+// webultd/PayU/PaymentBundle/Resources/config/routing.yml
+# akcja podsumowania zamówienia oraz możliwość dokonania płatności
+webultdPayuPaymentBundle_order_summary:
+    pattern:  /summary
+    defaults: { _controller: webultdPayuPaymentBundle:Payment:orderSummary }
+
+# akcja wywoływana po poprawnej autoryzacji w PayU
+webultdPayuPaymentBundle_authorized:
+    pattern:  /authorized
+    defaults: { _controller: webultdPayuPaymentBundle:Payment:authorized }
+
+# akcja po poprawnym dokonaniu płatności
+webultdPayuPaymentBundle_success:
+    pattern:  /success
+    defaults: { _controller: webultdPayuPaymentBundle:Payment:success }
+
+# akcja po anulowaniu płatności
+webultdPayuPaymentBundle_cancel:
+    pattern:  /cancel
+    defaults: { _controller: webultdPayuPaymentBundle:Payment:cancel }
+
+# akcja nasłuchująca notyfikacje z PayU
+webultdPayuPaymentBundle_status:
+    pattern:  /status
+    defaults: { _controller: webultdPayuPaymentBundle:Payment:status }
+    requirements:
+        _method: POST
+```
