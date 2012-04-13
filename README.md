@@ -45,6 +45,7 @@ webultd_payu_payment:
 ```
 
 5. Routing:
+
 ```
 webultdPayuPaymentBundle:
     resource: "@webultdPayuPaymentBundle/Resources/config/routing.yml"
@@ -52,6 +53,7 @@ webultdPayuPaymentBundle:
 ```
 
 6. Akcje:
+
 ```
 // webultd/PayU/PaymentBundle/Resources/config/routing.yml
 webultdPayuPaymentBundle_order_summary: # akcja podsumowania zamówienia oraz możliwość dokonania płatności
