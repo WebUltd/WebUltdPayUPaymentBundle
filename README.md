@@ -1,6 +1,6 @@
 # WebUltdPayUPaymentBundle
 
-![WebUltd Logo] (http://webultd.com/static/img/logo.png)
+![WebUltd Logo](http://webultd.com/static/img/logo.png)
 
 ## Instalacja
 
@@ -31,7 +31,15 @@ $bundles = array(
 );
 ```
 
-4. Konfiguracja:
+4. Routing (app/config/routing.yml):
+
+```
+webultdPayuPaymentBundle:
+    resource: "@webultdPayuPaymentBundle/Resources/config/routing.yml"
+    prefix:   /payment
+```
+
+# Konfiguracja
 
 ```
 webultd_payu_payment:
@@ -44,15 +52,7 @@ webultd_payu_payment:
     signature_key: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx # signature_key z serwisu PayU
 ```
 
-5. Routing:
-
-```
-webultdPayuPaymentBundle:
-    resource: "@webultdPayuPaymentBundle/Resources/config/routing.yml"
-    prefix:   /payment
-```
-
-6. Akcje:
+# Akcje
 
 ```
 // webultd/PayU/PaymentBundle/Resources/config/routing.yml
