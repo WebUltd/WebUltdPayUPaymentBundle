@@ -21,7 +21,9 @@ class PaymentController extends Controller
         $paymentApi = $this->get('webultd_payu_payment.api');
         $sessionId = $paymentApi->generateSessionId();
 
-        $shoppingCart = $this->get('webultd_payu_payment.shopping_cart');
+        $shoppingCart = $this->get('spam2_payment.shopping_cart');
+        $applicationId = $shoppingCart->getApplicationId();
+
         $entityManager = $this->get('doctrine')->getEntityManager();
 
         $items = $shoppingCart->getItems();
@@ -30,6 +32,7 @@ class PaymentController extends Controller
 
         $order = new Order();
         $order->setSessionId($sessionId);
+        $order->setApplicationId($applicationId);
         $order->setType($paymentApi->getOrderType());
         $order->setAmountNet($shoppingCart->getAmountNet() / 100);
         $order->setAmountGross($shoppingCart->getAmountGross() / 100);

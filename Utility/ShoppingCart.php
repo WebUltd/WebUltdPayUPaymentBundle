@@ -6,9 +6,9 @@ use Symfony\Component\HttpFoundation\Session;
 
 class ShoppingCart
 {
-    private $session;
-    private $sessionId = 'shopping_cart';
-    private $instance;
+    protected $session;
+    protected  $sessionId = 'shopping_cart';
+    protected $instance;
 
     private $initialData = array(
         'grand_total' => 0,
@@ -33,6 +33,11 @@ class ShoppingCart
         }
 
         $this->instance = $instance;
+    }
+
+    public function getInstance()
+    {
+        return $this->instance;
     }
 
     public function getItems()

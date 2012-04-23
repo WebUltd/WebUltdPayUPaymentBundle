@@ -26,6 +26,11 @@ class Order
     protected $sessionId;
 
     /**
+     * @ORM\Column(name="application_id", type="integer")
+     */
+    protected $applicationId;
+
+    /**
      * @ORM\Column(type="string", length=8)
      */
     protected $type;
@@ -91,6 +96,28 @@ class Order
     public function getSessionId()
     {
         return $this->sessionId;
+    }
+
+    /**
+     * Set applicationId
+     *
+     * @param string $applicationId
+     * @return Order
+     */
+    public function setApplicationId($applicationId)
+    {
+        $this->applicationId = $applicationId;
+        return $this;
+    }
+
+    /**
+     * Get applicationId
+     *
+     * @return string
+     */
+    public function getApplicationId()
+    {
+        return $this->applicationId;
     }
 
     /**
