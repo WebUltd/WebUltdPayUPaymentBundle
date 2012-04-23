@@ -135,7 +135,7 @@ class PaymentController extends Controller
 
         try {
             $result = $paymentApi->retrieveOrder($_REQUEST['document']);
-            file_put_contents("/home/webultd1/debug.txt", $e->getMessage());
+            file_put_contents("/home/webultd1/debug.txt", var_export($result, true));
         } catch (Exception $e) {
             file_put_contents("/home/webultd1/debug.txt", $e->getMessage());
         }
