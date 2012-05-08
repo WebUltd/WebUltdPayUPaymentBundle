@@ -9,9 +9,9 @@
  */
 
 class OpenPayU_Order extends OpenPayU {
-	
+
 	/**
-	 * Function sending Order to PayU Service 
+	 * Function sending Order to PayU Service
 	 * @access public
 	 * @param array $order
 	 * @param boolean $debug
@@ -58,7 +58,7 @@ class OpenPayU_Order extends OpenPayU {
 	}
 
 	/**
-	 * Function retrieving Order data from PayU Service 
+	 * Function retrieving Order data from PayU Service
 	 * @access public
 	 * @param string $sessionId
 	 * @param boolean $debug
@@ -91,7 +91,7 @@ class OpenPayU_Order extends OpenPayU {
 			OpenPayU::addOutputConsole('OrderRetrieveResponse message', htmlentities($response));
 		}
 
-		$status = OpenPayU::verifyOrderCreateResponse($response);
+		$status = OpenPayU::verifyOrderRetrieveResponse($response);
 		if ($debug) {
 			OpenPayU::addOutputConsole('OrderRetrieveResponse status', serialize($status));
 		}
@@ -116,7 +116,7 @@ class OpenPayU_Order extends OpenPayU {
 	}
 
 	/**
-	 * Function consume message 
+	 * Function consume message
 	 * @access public
 	 * @param string $xml
 	 * @param boolean $response Show Response Xml
@@ -143,7 +143,7 @@ class OpenPayU_Order extends OpenPayU {
 	}
 
 	/**
-	 * Function consume notification message 
+	 * Function consume notification message
 	 * @access private
 	 * @param string $xml
 	 * @param boolean $response Show Response Xml
@@ -159,7 +159,7 @@ class OpenPayU_Order extends OpenPayU {
 		$rq = OpenPayU::parseOpenPayUDocument($xml);
 		$reqId = $rq['OpenPayU']['OrderDomainRequest']['OrderNotifyRequest']['ReqId'];
 		$sessionId = $rq['OpenPayU']['OrderDomainRequest']['OrderNotifyRequest']['SessionId'];
-			
+
 		if ($debug) {
 			OpenPayU::addOutputConsole('OrderNotifyRequest data, reqId', $reqId . ', sessionId: ' . $sessionId);
 		}
@@ -169,7 +169,7 @@ class OpenPayU_Order extends OpenPayU {
 		if ($debug) {
 			OpenPayU::addOutputConsole('OrderNotifyResponse message', $rsp);
 		}
-		
+
 		// show response
 		if($response == TRUE)
 		{
@@ -183,8 +183,8 @@ class OpenPayU_Order extends OpenPayU {
 		$result->setSuccess(TRUE);
 		$result->setRequest($rq);
 		$result->setResponse($rsp);
-		$result->setMessage('OrderNotifyRequest');		
-		
+		$result->setMessage('OrderNotifyRequest');
+
 		// if everything is alright return full data sent from payu service to client
 		return $result;
 	}
