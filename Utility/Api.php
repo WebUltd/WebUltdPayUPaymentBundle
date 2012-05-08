@@ -37,12 +37,12 @@ class Api
         $this->currencyCode = 'PLN'; // TODO: from configuration
         $this->orderType = self::ORDER_TYPE_VIRTUAL;
 
-        \OpenPayU_Configuration::environment($this->environment);
-        \OpenPayU_Configuration::merchantPosId($this->merchantPosId);
-        \OpenPayU_Configuration::posAuthKey($this->posAuthKey);
-        \OpenPayU_Configuration::clientId($this->clientId);
-        \OpenPayU_Configuration::clientSecret($this->clientSecret);
-        \OpenPayU_Configuration::signatureKey($this->signatureKey);
+        \OpenPayU_Configuration::setEnvironment($this->environment);
+        \OpenPayU_Configuration::setMerchantPosId($this->merchantPosId);
+        \OpenPayU_Configuration::setPosAuthKey($this->posAuthKey);
+        \OpenPayU_Configuration::setClientId($this->clientId);
+        \OpenPayU_Configuration::setClientSecret($this->clientSecret);
+        \OpenPayU_Configuration::setSignatureKey($this->signatureKey);
 
         $this->authUrl = \OpenPayU_Configuration::$authUrl;
         $this->summaryUrl = \OpenPayU_Configuration::$summaryUrl;

@@ -53,18 +53,20 @@ class PaymentController extends Controller
 
         $request = $paymentApi->createRequest($requestData);
 
-        if(!$request->success) {
+        if(!$request->getSuccess()) {
             $entityManager->getConnection()->rollback();
             return $this->render('webultdPayuPaymentBundle:Payment:order_summary.html.twig', array('createRequestSuccess' => false));
         }
 
         try {
             $orderRequest = new OrderRequest();
-            $orderRequest->setId($request->request['ReqId']);
-            $orderRequest->setCustomerIp($request->request['CustomerIp']);
-            $orderRequest->setNotifyUrl($request->request['NotifyUrl']);
-            $orderRequest->setCompleteUrl($request->request['OrderCompleteUrl']);
-            $orderRequest->setCancelUrl($request->request['OrderCancelUrl']);
+            $request = $request->getRequest();
+
+            $orderRequest->setId($request['ReqId']);
+            $orderRequest->setCustomerIp($request['CustomerIp']);
+            $orderRequest->setNotifyUrl($request['NotifyUrl']);
+            $orderRequest->setCompleteUrl($request['OrderCompleteUrl']);
+            $orderRequest->setCancelUrl($request['OrderCancelUrl']);
             $orderRequest->setOrder($order);
 
             $orderItems = array();
@@ -103,13 +105,13 @@ class PaymentController extends Controller
 
         $result = $paymentApi->getAccessTokenByCode($code, $router->generate('webultdPayuPaymentBundle_authorized', array(), true));
 
-        if($result->success) {
-            return $this->redirect($paymentApi->getSummaryUrl() . '?sessionId=' .  urlencode($paymentApi->getSessionId()) . '&oauth_token=' . urlencode($result->accessToken));
+        if($result->getSuccess()) {
+            return $this->redirect($paymentApi->getSummaryUrl() . '?sessionId=' .  urlencode($paymentApi->getSessionId()) . '&oauth_token=' . urlencode($result->getAccessToken()));
         } else {
             var_dump($result); die; // TODO
         }
 
-        return $this->render('webultdPayuPaymentBundle:Payment:authorized.html.twig', array('summaryUrl' => $paymentApi->getSummaryUrl(), 'accessToken' => $result->accessToken));
+        return $this->render('webultdPayuPaymentBundle:Payment:authorized.html.twig', array('summaryUrl' => $paymentApi->getSummaryUrl(), 'accessToken' => $result->getAccessToken()));
     }
 
     public function successAction()

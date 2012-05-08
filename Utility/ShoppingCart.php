@@ -113,14 +113,14 @@ class ShoppingCart
         $amountGross = 0;
 
         foreach($this->instance['items'] as $item) {
-            $amountNet += $item['ShoppingCartItem']['Product']['UnitPrice']['Net'] * $item['ShoppingCartItem']['Quantity'];
+            $amountNet += ($item['ShoppingCartItem']['Product']['UnitPrice']['Net'] / 100) * $item['ShoppingCartItem']['Quantity'];
         }
 
         $grandTotal = $amountGross = $amountNet * (1 + $this->getTax() / 100);
 
-        $this->instance['grand_total'] = $grandTotal;
-        $this->instance['amount_net'] = $amountNet;
-        $this->instance['amount_gross'] = $amountGross;
+        $this->instance['grand_total'] = $this->convertToLong($grandTotal);
+        $this->instance['amount_net'] = $this->convertToLong($amountNet);
+        $this->instance['amount_gross'] = $this->convertToLong($amountGross);
     }
 
     public function clear()
