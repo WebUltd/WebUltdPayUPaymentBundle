@@ -90,7 +90,7 @@ class Api
     {
         $result = \OpenPayU_Order::consumeMessage($document);
         if ($result->getMessage() == 'OrderNotifyRequest') {
-            return \OpenPayU_Order::retrieve($result->sessionId);
+            return \OpenPayU_Order::retrieve($result->getSessionId());
         }
 
         return null;
