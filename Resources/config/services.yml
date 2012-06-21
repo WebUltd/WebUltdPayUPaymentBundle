@@ -21,6 +21,7 @@ services:
         class: %webultd_payu_payment.shopping_cart.class%
         arguments:
             - @session
+            - %webultd_payu_payment.shopping_cart.tax%
 
     webultd_payu_payment.twig:
       class: %webultd_payu_payment.twig.class%
