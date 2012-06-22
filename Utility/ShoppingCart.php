@@ -14,15 +14,17 @@ class ShoppingCart
         'grand_total' => 0,
         'amount_net' => 0,
         'amount_gross' => 0,
-        'tax' => 23, // TODO: tax from configuration
+        //'tax' => 23, // TODO: tax from configuration (DONE - Paweł Małolepszy)
         'items' => array(),
     );
 
 
-    public function __construct(Session $session)
+    public function __construct(Session $session, $tax)
     {
         $this->session = $session;
         $this->session->start();
+
+        $this->initialData['tax'] = $tax;
 
         $instance = $this->session->get($this->sessionId);
 
@@ -33,6 +35,7 @@ class ShoppingCart
         }
 
         $this->instance = $instance;
+
     }
 
     public function getInstance()
