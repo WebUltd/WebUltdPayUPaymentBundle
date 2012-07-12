@@ -49,6 +49,8 @@ webultd_payu_payment:
     client_id: xxxx # client_id z serwisu PayU
     client_secret: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx # client_secret z serwisu PayU
     signature_key: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx # signature_key z serwisu PayU
+    shopping_cart:
+        tax: 23 # wartość podatku, domyślnie 23(również gdy nie podano)
 ```
 
 ## Akcje

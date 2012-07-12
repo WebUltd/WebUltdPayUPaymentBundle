@@ -4,6 +4,7 @@ namespace webultd\Payu\PaymentBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
+use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 
 /**
  * This is the class that validates and merges configuration from your app/config files
@@ -31,6 +32,20 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('signature_key')->isRequired()->cannotBeEmpty()->end()
             ->end();
 
+        $this->addShoppingCartSection($rootNode);
+
         return $treeBuilder;
+    }
+
+    private function addShoppingCartSection(ArrayNodeDefinition $rootNode)
+    {
+        $rootNode
+            ->children()
+                ->arrayNode('shopping_cart')
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->scalarNode('tax')->defaultValue(23)->end()
+                    ->end()
+            ->end();
     }
 }

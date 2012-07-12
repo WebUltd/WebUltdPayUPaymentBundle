@@ -26,6 +26,9 @@ class webultdPayuPaymentExtension extends Extension
             $container->setParameter('webultd_payu_payment.'.$attribute, $config[$attribute]);
         }
 
+        //hotfix
+        $container->setParameter('webultd_payu_payment.shopping_cart.tax', $config['shopping_cart']['tax']);
+
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
     }
