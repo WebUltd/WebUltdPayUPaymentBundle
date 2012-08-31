@@ -19,6 +19,9 @@
         "php":">=5.3.3",
         "symfony/framework-bundle": ">=2.0,<2.2-dev"
     },
+
+    "minimum-stability": "dev",
+
     "autoload": {
         "psr-0": {
             "webultd\\Payu\\PaymentBundle\\webultdPayuPaymentBundle":""
