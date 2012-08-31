@@ -1,0 +1,28 @@
+{
+    "name": "webultd/webultdpayupaymentbundle",
+    "description": "Bundle wspierający system płatności PayU",
+    "keywords": ["webultd", "webultdpayupaymentbundle", "symfony", "bundle", "payment", "payu"],
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Blazej Gruszka",
+            "email": "github@gruszka.info"
+        },
+        {
+            "name": "Paweł Małolepszy",
+            "email": "p.malolepszy@itspecialist.com.pl"
+        }
+
+    ],
+    "require":{
+        "php":">=5.3.3",
+        "symfony/framework-bundle": ">=2.0,<2.2-dev"
+    },
+    "autoload": {
+        "psr-0": {
+            "webultd\\Payu\\PaymentBundle\\webultdPayuPaymentBundle":""
+        }
+    },
+    "target-dir": "webultd/Payu/PaymentBundle/webultdPayuPaymentBundle"
+}
