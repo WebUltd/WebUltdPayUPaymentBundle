@@ -1,5 +1,5 @@
 {
-    "name": "webultd/webultdpayupaymentbundle",
+    "name": "dyferencjal/webultdpayupaymentbundle",
     "description": "Bundle wspierający system płatności PayU",
     "keywords": ["webultd", "webultdpayupaymentbundle", "symfony", "bundle", "payment", "payu"],
     "type": "symfony-bundle",
