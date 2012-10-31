@@ -24,7 +24,7 @@
 
     "autoload": {
         "psr-0": {
-            "webultd\\Payu\\PaymentBundle\\":""
+            "webultd\\Payu\\PaymentBundle":""
         }
     },
     "target-dir": "webultd/Payu/PaymentBundle"
