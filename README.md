@@ -24,6 +24,9 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
 IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
+## Diagram wywołań akcji
+![Action Flow Diagram](http://webultd.com/static/img/webultd_payu_payment_flow.png)
+
 ## Instalacja
 
 ### Dodanie wpisu do pliku deps:
