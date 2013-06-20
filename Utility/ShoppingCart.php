@@ -2,7 +2,7 @@
 
 namespace  webultd\Payu\PaymentBundle\Utility;
 
-use Symfony\Component\HttpFoundation\Session;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class ShoppingCart
 {
