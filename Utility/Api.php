@@ -3,7 +3,7 @@
 namespace  webultd\Payu\PaymentBundle\Utility;
 
 use Symfony\Component\Routing\Router;
-use Symfony\Component\HttpFoundation\Session;
+use Symfony\Component\HttpFoundation\Session\Session;
 class Api
 {
     const ORDER_TYPE_VIRTUAL = 'VIRTUAL';

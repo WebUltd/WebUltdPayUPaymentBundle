@@ -22,7 +22,9 @@ class PaymentController extends Controller
         $sessionId = $paymentApi->generateSessionId();
 
         $shoppingCart = $this->get('webultd_payu_payment.shopping_cart');
-        $applicationId = $shoppingCart->getApplicationId();
+        //this causes unkown method error so added hardoced version for you to fix
+        // $applicationId = $shoppingCart->getApplicationId();
+        $applicationId = "some id";
 
         $entityManager = $this->get('doctrine')->getEntityManager();
 
