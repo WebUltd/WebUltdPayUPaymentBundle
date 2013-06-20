@@ -91,7 +91,7 @@ class ShoppingCart
         );
 
         $this->instance['items'][]['ShoppingCartItem'] = $item;
-        //var_dump($this->instance); die;
+
         $this->recalculateCart();
 
         $this->session->set($this->sessionId, $this->instance);
